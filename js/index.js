@@ -1,5 +1,7 @@
 var bt = document.getElementById("bt");
 var bt2 = document.getElementById("btsum");
+var tbody = document.getElementById("tbody");
+var bt_load = document.getElementById("bt_load");
 
 bt.addEventListener("click", function () {
   var txt = document.getElementById("txt");
@@ -32,3 +34,18 @@ bt2.addEventListener("click", () => {
     res.innerHTML = "Suma: " + suma;
   }
 });
+
+bt_load.addEventListener("click", () => {
+  loadPaises();
+});
+
+function loadPaises() {
+  var paises = ["Chile", "Argentina", "Peru", "Colombia", "Ecuador"];
+  tbody.innerHTML = ""; //limipiar el tbody
+  paises.forEach((item) => {
+    var fila = tbody.insertRow();
+    var celda = fila.insertCell();
+    celda.innerHTML = item;
+    tbody.append(fila);
+  });
+}
